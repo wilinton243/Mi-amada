@@ -1,0 +1,691 @@
+/* ==========================================
+   CONFIGURACIÓN GENERAL
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #f7dce6;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==========================================
+   PANTALLA PRINCIPAL
+   FONDO ROMÁNTICO DIFUMINADO
+   ========================================== */
+
+.pantalla-inicio {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 225, 235, 0.92) 20%,
+            rgba(246, 194, 210, 0.90) 45%,
+            rgba(218, 157, 181, 0.88) 68%,
+            rgba(166, 105, 137, 0.95) 100%
+        );
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+
+/* Brillo difuminado decorativo */
+
+.pantalla-inicio::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -20%;
+
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(255, 255, 255, 0.45),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 205, 225, 0.40),
+            transparent 30%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   CENTRO DE LA PANTALLA
+   ========================================== */
+
+.inicio-centro {
+    width: 90%;
+    max-width: 800px;
+
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ==========================================
+   LÍNEAS DECORATIVAS
+   ========================================== */
+
+.inicio-linea {
+    width: 190px;
+
+    height: 1px;
+
+    margin: 18px auto;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(126, 54, 87, 0.75),
+            transparent
+        );
+
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   TÍTULO PRINCIPAL
+   ========================================== */
+
+.inicio-centro h1 {
+    margin: 8px 0;
+
+    color: #7d3658;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(4rem, 8vw, 7.5rem);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 8px rgba(255, 255, 255, 0.80),
+        0 0 20px rgba(255, 255, 255, 0.55),
+        0 0 35px rgba(157, 69, 105, 0.20);
+}
+
+
+/* ==========================================
+   SUBTÍTULO / MENSAJE
+   ========================================== */
+
+.inicio-centro p {
+    margin-top: 14px;
+
+    max-width: 700px;
+
+    padding: 0 15px;
+
+    color: #54253c;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(1rem, 2vw, 1.35rem);
+
+    font-style: italic;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    text-shadow:
+        0 1px 4px rgba(255, 255, 255, 0.85);
+
+    opacity: 1;
+}
+
+
+/* ==========================================
+   CORAZÓN CENTRAL
+   ========================================== */
+
+.inicio-corazon {
+    margin-top: 24px;
+
+    margin-bottom: 22px;
+
+    color:
+        #a83f68;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 2.5rem;
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(190, 67, 111, 0.45);
+
+    animation:
+        latidoInicio 2.2s ease-in-out infinite;
+}
+
+
+@keyframes latidoInicio {
+
+    0% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.75;
+    }
+}
+
+
+/* ==========================================
+   BOTÓN ENTRAR
+   ========================================== */
+
+#botonEntrar {
+    position: relative;
+
+    padding:
+        13px 42px;
+
+    margin-top: 2px;
+
+    border:
+        1px solid rgba(126, 54, 87, 0.55);
+
+    border-radius: 50px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.38);
+
+    color:
+        #672d49;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 0.82rem;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 20px rgba(120, 45, 80, 0.12);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+#botonEntrar:hover {
+    background:
+        rgba(255, 255, 255, 0.65);
+
+    border-color:
+        rgba(126, 54, 87, 0.80);
+
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.65),
+        0 0 35px rgba(157, 69, 105, 0.22);
+
+    transform:
+        translateY(-2px);
+}
+
+
+#botonEntrar:active {
+    transform:
+        translateY(0) scale(0.98);
+}
+
+
+/* ==========================================
+   EFECTO AL OCULTAR LA PANTALLA DE INICIO
+   ========================================== */
+
+.pantalla-inicio.oculta {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   CANVAS PRINCIPAL
+   ========================================== */
+
+#canvas {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    background: #050505;
+
+    transition:
+        opacity 1.2s ease;
+}
+
+
+/* ==========================================
+   CANVAS CUANDO ENTRA A LA EXPERIENCIA
+   ========================================== */
+
+#canvas.activo {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   EVITAR SELECCIONES ACCIDENTALES
+   ========================================== */
+
+canvas {
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==========================================
+   RESPONSIVE - TABLETS
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .inicio-centro {
+        width: 88%;
+    }
+
+    .inicio-centro h1 {
+        font-size:
+            clamp(3.5rem, 10vw, 6rem);
+    }
+
+    .inicio-linea {
+        width: 160px;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE - MÓVILES
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .inicio-centro {
+        width: 90%;
+
+        min-height: 260px;
+    }
+
+    .inicio-centro h1 {
+        font-size:
+            clamp(3.2rem, 15vw, 4.8rem);
+
+        line-height: 1.05;
+    }
+
+    .inicio-centro p {
+        margin-top: 12px;
+
+        padding: 0 10px;
+
+        font-size: 0.95rem;
+
+        letter-spacing: 0.5px;
+
+        line-height: 1.55;
+    }
+
+    .inicio-corazon {
+        margin-top: 20px;
+
+        margin-bottom: 20px;
+
+        font-size: 2.2rem;
+    }
+
+    .inicio-linea {
+        width: 125px;
+
+        margin: 15px auto;
+    }
+
+    #botonEntrar {
+        padding:
+            12px 34px;
+
+        font-size: 0.76rem;
+
+        letter-spacing: 2.5px;
+    }
+}
+
+
+/* ==========================================
+   MÓVILES MUY PEQUEÑOS
+   ========================================== */
+
+@media (max-height: 600px) {
+
+    .inicio-centro h1 {
+        font-size: 3.5rem;
+    }
+
+    .inicio-centro p {
+        margin-top: 8px;
+    }
+
+    .inicio-corazon {
+        margin-top: 12px;
+
+        margin-bottom: 12px;
+    }
+
+    .inicio-linea {
+        margin: 10px auto;
+    }
+
+}
+#fraseClic {
+    position: fixed;
+
+    top: 50%;
+    left: 28%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(42%, 650px);
+    min-height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: #fff;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(1.1rem, 1.8vw, 1.7rem);
+
+    font-style: italic;
+
+    line-height: 1.7;
+
+    background:
+        rgba(90, 20, 50, 0.72);
+
+    border:
+        1px solid rgba(255, 170, 200, 0.75);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 15px rgba(255, 150, 190, 0.35),
+        0 0 40px rgba(255, 100, 160, 0.20),
+        inset 0 0 30px rgba(255, 180, 210, 0.08);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.45),
+        0 0 25px rgba(255,120,150,0.30);
+}
+
+
+#fraseClic.visible {
+    opacity: 1;
+}
+
+
+#fotoClic {
+    position: fixed;
+
+    top: 50%;
+    left: 72%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(38%, 430px);
+    height: 300px;
+
+    border:
+        1px solid rgba(255, 170, 200, 0.75);
+
+    border-radius: 28px;
+
+    background:
+        rgba(90, 20, 50, 0.45);
+
+    box-shadow:
+        0 0 15px rgba(255, 150, 190, 0.35),
+        0 0 40px rgba(255, 100, 160, 0.20),
+        inset 0 0 30px rgba(255, 180, 210, 0.08);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+#fotoClic.visible {
+    opacity: 1;
+}
+#fraseClic {
+    position: fixed;
+    top: 50%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    width: min(42%, 650px);
+    min-height: 220px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    text-align: center;
+
+    color: #fff;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+    font-style: italic;
+    line-height: 1.7;
+
+    background: rgba(90, 20, 50, 0.72);
+
+    border: 1px solid rgba(255, 170, 200, 0.75);
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 15px rgba(255, 150, 190, 0.35),
+        0 0 40px rgba(255, 100, 160, 0.20),
+        inset 0 0 30px rgba(255, 180, 210, 0.08);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    transition: opacity 0.8s ease;
+
+    pointer-events: none;
+    z-index: 10;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.45),
+        0 0 25px rgba(255,120,150,0.30);
+}
+
+#fraseClic.visible {
+    opacity: 1;
+}
+
+
+#fotoClic {
+    position: fixed;
+    top: 50%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+
+    width: min(38%, 430px);
+    height: 300px;
+
+    border: 1px solid rgba(255, 170, 200, 0.75);
+    border-radius: 28px;
+
+    background: rgba(90, 20, 50, 0.45);
+
+    box-shadow:
+        0 0 15px rgba(255, 150, 190, 0.35),
+        0 0 40px rgba(255, 100, 160, 0.20),
+        inset 0 0 30px rgba(255, 180, 210, 0.08);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    transition: opacity 0.8s ease;
+
+    pointer-events: none;
+    z-index: 10;
+}
+
+#fotoClic.visible {
+    opacity: 1;
+}
+
+#fotoClic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 28px;
+    display: block;
+}
